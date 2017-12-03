@@ -14,12 +14,8 @@ body {
   text-align: center;
 }
 
-video {
-  //display: none;
-}
-
 canvas {
-  //visibility: hidden;
+  display: none;
 }
 
 
@@ -38,6 +34,31 @@ canvas {
 
 #artwork-wrapper {
   border: 1px solid rgba(grey, 0.1);
+}
+
+#video-wrapper {
+
+  position: fixed;
+  top: 20%;
+  right: 0;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  background-color: rgba(lightgrey, 0.7);
+
+  a {
+    display: block;
+    border-radius: 4px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+
+    &:hover {
+      background-color: grey;
+    }
+  }
+
 }
 
 
