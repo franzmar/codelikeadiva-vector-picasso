@@ -18,7 +18,6 @@ class Artwork {
   init() {
 
     this.setDatGUI();
-
     this.bindEvents();
   }
 
@@ -35,8 +34,6 @@ class Artwork {
 
   bindEvents() {
 
-    const self = this;
-
     // Grab elements, create settings, etc.
     this.video = document.querySelector('#video');
     this.video.setAttribute('width', this.artworkWidth / 10);
@@ -46,8 +43,8 @@ class Artwork {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       // Not adding `{ audio: true }` since we only want video now
       navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
-        self.video.src = window.URL.createObjectURL(stream);
-        self.video.play();
+        this.video.src = window.URL.createObjectURL(stream);
+        this.video.play();
       });
     }
 
@@ -59,7 +56,6 @@ class Artwork {
 
     this.video.setAttribute('data-scaled-width', Math.floor(this.artworkWidth / this.configData.scaleFactor));
     this.video.setAttribute('data-scaled-height', Math.floor(this.artworkHeight / this.configData.scaleFactor));
-
     this.canvas = document.querySelector('#canvas');
     this.canvas.setAttribute('width', this.video.dataset.scaledWidth);
     this.canvas.setAttribute('height', this.video.dataset.scaledHeight);
@@ -110,7 +106,6 @@ class Artwork {
           B = Math.floor((B / 2)) * 2;
         }
 
-
         // get brightness of each pixel for black and white effect
         let brightness = Math.floor((r + g + b) / 3);
 
@@ -147,8 +142,6 @@ class Artwork {
       }
     }
   }
-
-
 }
 
 export default Artwork;
